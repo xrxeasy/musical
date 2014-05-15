@@ -1,0 +1,38 @@
+<h1>Listing orders</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th><%=link_to'Name',users_path , class: 'na'%> </th>
+      <th>Address&nbsp;</th>
+      <th>Email</th>
+      <th>&nbsp;&nbsp;Pay type</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @orders.each do |order| %>
+      <tr>
+        <td><%= order.name %></td>
+
+        <td>&nbsp;&nbsp;&nbsp;&nbsp;<%= order.address %></td>
+        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= order.email %></td>
+        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= order.pay_type %></td>
+        <td><%= link_to 'Show', order,class: 'sho' %></td>
+        <td><%= link_to 'Edit', edit_order_path(order),class: 'edi'%></td>
+        <td><%= link_to 'Destroy', order, class: 'des',method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Order', new_order_path,class: 'ord' %>
+<!-- START_HIGHLIGHT -->
+<p><%= paginate @orders %></p>
+<!-- END_HIGHLIGHT -->

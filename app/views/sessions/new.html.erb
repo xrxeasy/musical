@@ -1,0 +1,30 @@
+<div class="depot_form">
+<% if flash[:alert] %>
+<p id="notice"><%= flash[:alert] %></p>
+<% end %>
+
+ <%= stylesheet_link_tag    "scaffolds", media: "all",
+    "data-turbolinks-track" => true %>
+
+<%= form_tag do %>
+<fieldset>
+<legend>Please Log In</legend>
+
+<div>
+<%= label_tag :name, 'Name:' %>
+<%= text_field_tag :name, params[:name] %>
+</div>
+
+<div>
+<%= label_tag :password, 'Password:' %>
+<%= password_field_tag :password, params[:password] %>
+</div>
+
+<div>
+<script>with([]){length=20+1;document.write(join("&nbsp;"))}</script>
+<%= submit_tag "Login" ,class: 'subb' %>
+<%= link_to 'Register', new_user_path ,class: 'reg'%>
+</div>
+</fieldset>
+<% end %>
+</div>
