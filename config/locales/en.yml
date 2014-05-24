@@ -35,9 +35,12 @@ en:
     application:
       title:       "EASY MUSICAL STORE"
       home:        "Home"
-      questions:   "Questions"
-      news:        "News"
+      admin_html:  "Admin"
       contact:     "Contact"
+      order_html:  "Orders"
+      product_html: "Protucts"
+      users_html:  "Managers"
+      logout_html:  "Logout"
 #END:layout
 
 #START:cart
@@ -51,7 +54,7 @@ en:
 #START:main
   store:
     index:
-      title_html:  "Your  Catalog"
+      title_html:  "Welcome to EASY Musical Store !"
       add_html:    "Add to Cart"
 #END:main
 

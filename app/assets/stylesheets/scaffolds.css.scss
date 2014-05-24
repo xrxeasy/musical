@@ -4,22 +4,26 @@ body {
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
   line-height: 18px;
+
 }
 
 p, ol, ul, td {
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
   line-height: 18px;
+
 }
 
 pre {
   background-color: #eee;
   padding: 10px;
   font-size: 11px;
+
 }
 
 a {
   color: #000;
+  
   &:visited {
     color: #666;
   }
@@ -32,17 +36,20 @@ a {
 div {
   &.field, &.actions {
     margin-bottom: 10px;
+
   }
 }
 
 #notice {
+background-color:#00A600;
   color: green;
 }
 
 .field_with_errors {
   padding: 2px;
-  background-color: red;
+  background-color:#00A600;
   display: table;
+
 }
 
 #error_explanation {
@@ -59,7 +66,7 @@ div {
     font-size: 12px;
     margin: -7px;
     margin-bottom: 0px;
-    background-color: #c00;
+    background-color: green;
     color: #fff;
   }
   ul li {
@@ -73,9 +80,9 @@ div {
     background:-moz-linear-gradient(top,#FFF,#99cc99);
     text-decoration:none;
     color:gray;
-    font-size:15px;
-    margin-left:35px;
-    margin-top:10px;
+    font-size:17px;
+    
+    margin-top:12px;
 }
 .reg{
     border:1px solid #ccc;
@@ -137,36 +144,19 @@ div {
     
     margin-top:10px;
 }
-.psho{
-    border:1px solid #ccc;
-    border-radius:5px;
-    background:-moz-linear-gradient(top,#FFF,#99cc99);
-    text-decoration:none;
-    color:gray;
-    font-size:10px;
-    margin-left:10px;
-    margin-top:10px;
-}
+
 .pedi{
     border:1px solid #ccc;
     border-radius:5px;
     background:-moz-linear-gradient(top,#FFF,#99cc99);
     text-decoration:none;
-    color:gray;
-    font-size:10px;
-    margin-left:10px;
+    color:black;
+    font-size:15px;
+    
     margin-top:10px;
 }
-.pdes{
-    border:1px solid #ccc;
-    border-radius:5px;
-    background:-moz-linear-gradient(top,#FFF,#99cc99);
-    text-decoration:none;
-    color:gray;
-    font-size:10px;
-    margin-left:10px;
-    margin-top:10px;
-}
+
+
 .usho{
     border:1px solid #ccc;
     border-radius:5px;
@@ -195,5 +185,15 @@ div {
     color:gray;
     font-size:12px;
     margin-left:15px;
+    margin-top:10px;
+}
+.reg2{
+    border:1px solid #ccc;
+    border-radius:5px;
+    background:-moz-linear-gradient(white,gray);
+    text-decoration:none;
+    color:gray;
+    font-size:12px;
+    
     margin-top:10px;
 }

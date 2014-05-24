@@ -1,9 +1,9 @@
 
 #encoding: utf-8
-I18n.default_locale = :en
+I18n.default_locale = :CH
 
 LANGUAGES = [
-  ['English',                  'en'],
-  ["Espa&ntilde;ol".html_safe, 'es']
-  #["Chinese",                  'CH']
+  ['中文',                  'CH'],
+  ['English',                  'en']
+ 
 ]

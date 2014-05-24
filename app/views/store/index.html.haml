@@ -1,7 +1,8 @@
 - if notice
   %p#notice= notice
-
-%h1= t('.title_html')
+//<h1><%= t('.title_html') %></h1>
+<h1>Welcome </h1>
+//<h2>Here are our instruments,Enjoy yourself ! </h2>
 
 - cache ['store', Product.latest] do
   - @products.each do |product|
@@ -9,7 +10,7 @@
       .entry
         = image_tag(product.image_url)
         %h3= product.title
-        = sanitize(product.description)
+        %div= sanitize(product.description)
         .price_line
           %span.price= number_to_currency(product.price)
           = button_to t('.add_html'), line_items_path(product_id: product),

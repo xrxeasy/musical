@@ -37,19 +37,22 @@
 
       <ul>
      
-      <li><a href="http://localhost:3000/"><%= t('.Home') %></a></li>
-        <li><a href="http://www..../faq"><%= t('.questions') %></a></li>
+      <li><a href="http://localhost:3000"><%= t('.home') %></a></li>
         <li><a href="http://localhost:3000/about"><%= t('.about') %></a></li>
+        
         <li><a href="http://localhost:3000/contact"><%= t('.contact') %></a></li>
+        
+        <li><%= link_to t('.admin_html'),  admin_path  %></li>
       </ul>
-
+     
+      
       <% if session[:user_id] %>
         <ul>
-          <li><%= link_to 'Orders',   orders_path   %></li>
-          <li><%= link_to 'Products', products_path %></li>
-          <li><%= link_to 'Users',    users_path    %></li>
+          <li><%= link_to t('.order_html'),   orders_path   %></li>
+          <li><%= link_to t('.product_html'), products_path %></li>
+          <li><%= link_to t('.users_html'),    users_path    %></li>
         </ul>
-        <%= button_to 'Logout', logout_path, class: 'ord',method: :delete   %>
+        <%= button_to t('.logout_html'), logout_path, class: 'ord',method: :delete,data: { confirm: 'Are you sure to logout?' }  %>
       <% end %>
     </div>
     <div id="main">
