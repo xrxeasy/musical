@@ -20,6 +20,17 @@
   <%= @order.pay_type %>
 </p>
 
-total_price
+<p>
+  <strong>Total Price:</strong>
+  <%= @total_price %>
+</p>
+
+<p>
+  <strong>Product:</strong>
+  <% @order_products.each do |p| %>
+    <td><%=link_to "#{p.title}",  product_path(id: p.id) %><%= image_tag p.image_url %></td>
+  <% end %>
+</p>
+
 <%= link_to 'Edit', edit_order_path(@order) %> |
 <%= link_to 'Back', orders_path %>
