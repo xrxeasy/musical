@@ -9,11 +9,34 @@ class OrdersController < ApplicationController
   # GET /orders.json
   def index
     @orders = Order.order('created_at desc').page(params[:page])
+    @order_total_price = {}
+    @order_products = {}
+
+    @orders.each do |order|
+      total_price = 0
+      products = []
+
+      order.line_items.each do |li|
+        total_price += li.total_price.to_i
+        products << li.product
+      end
+
+      @order_total_price["#{order.id}"] = total_price
+      @order_products["#{order.id}"] = products
+    end
+# binding.pry
   end
 
   # GET /orders/1
   # GET /orders/1.json
   def show
+    @total_price = 0
+    @order_products = []
+
+    @order.line_items.each do |li|
+      @total_price += li.total_price.to_i
+      @order_products << li.product
+    end
   end
 
   # GET /orders/new
@@ -41,7 +64,7 @@ class OrdersController < ApplicationController
         Cart.destroy(session[:cart_id])
         session[:cart_id] = nil
         OrderNotifier.received(@order).deliver
-        format.html { redirect_to store_url, notice: 
+        format.html { redirect_to store_url, notice:
           I18n.t('.thanks') }
         format.json { render action: 'show', status: :created,
           location: @order }

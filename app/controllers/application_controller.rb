@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
   protected
 
     def authorize
-      if request.format == Mime::HTML 
+      if request.format == Mime::HTML
         unless User.find_by(id: session[:user_id])
           redirect_to login_url, notice: "Please log in"
         end
@@ -29,7 +29,7 @@ class ApplicationController < ActionController::Base
         if I18n.available_locales.map(&:to_s).include?(params[:locale])
           I18n.locale = params[:locale]
         else
-          flash.now[:notice] = 
+          flash.now[:notice] =
             "#{params[:locale]} translation not available"
           logger.error flash.now[:notice]
         end
