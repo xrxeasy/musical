@@ -1,7 +1,8 @@
 
 class UsersController < ApplicationController
-  skip_before_action :authorize, only: [:new, :create]
+  # skip_before_action :authorize, only: [:new, :create]
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :admin?, only: [:index]
 
   # GET /users
   # GET /users.json
@@ -82,5 +83,13 @@ class UsersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
       params.require(:user).permit(:name, :password, :password_confirmation)
+    end
+
+    def admin?
+      user = User.find_by(id: session[:user_id])
+      unless user.admin
+        flash[:notice] = "请以管理员身份登录"
+        redirect_to login_url
+      end
     end
 end
