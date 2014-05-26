@@ -14,7 +14,7 @@
   <div id="banner">
 <!-- START_HIGHLIGHT -->
     <%= form_tag store_path, class: 'locale' do %>
-      <%= select_tag 'set_locale', 
+      <%= select_tag 'set_locale',
         options_for_select(LANGUAGES, I18n.locale.to_s),
         onchange: 'this.form.submit()' %>
       <%= submit_tag 'submit' %>
@@ -36,21 +36,24 @@
     <!-- END:hidden_div -->
 
       <ul>
-     
+
       <li><a href="http://localhost:3000"><%= t('.home') %></a></li>
         <li><a href="http://localhost:3000/about"><%= t('.about') %></a></li>
-        
+
         <li><a href="http://localhost:3000/contact"><%= t('.contact') %></a></li>
-        
+
         <li><%= link_to t('.admin_html'),  admin_path  %></li>
       </ul>
-     
-      
+
+
       <% if session[:user_id] %>
         <ul>
           <li><%= link_to t('.order_html'),   orders_path   %></li>
           <li><%= link_to t('.product_html'), products_path %></li>
-          <li><%= link_to t('.users_html'),    users_path    %></li>
+          <% user = User.find_by(id: session[:user_id]) %>
+          <% if user.admin %>
+            <li><%= link_to t('.users_html'),    users_path    %></li>
+          <% end %>
         </ul>
         <%= button_to t('.logout_html'), logout_path, class: 'ord',method: :delete,data: { confirm: 'Are you sure to logout?' }  %>
       <% end %>
