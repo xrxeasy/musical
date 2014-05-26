@@ -10,6 +10,10 @@
 
  
   <h3>We have <%= pluralize(@total_orders, "order") %></h3>
+  
+  
+  <%= link_to 'check', orders_path ,class: 'pedi'%>
+
  <h3>Today <%=  Time.now.strftime("%Y-%m-%d %H:%M")  %></h3>
  <%else%>
  <h1>welcome</h1>
