@@ -1,6 +1,6 @@
 
 class OrdersController < ApplicationController
-  skip_before_action :authorize, only: [:new, :create]
+  skip_before_action :authorize, only: [:new, :create, :show]
   include CurrentCart
   before_action :set_cart, only: [:new, :create]
   before_action :set_order, only: [:show, :edit, :update, :destroy]
@@ -24,7 +24,6 @@ class OrdersController < ApplicationController
       @order_total_price["#{order.id}"] = total_price
       @order_products["#{order.id}"] = products
     end
-# binding.pry
   end
 
   # GET /orders/1
@@ -64,7 +63,7 @@ class OrdersController < ApplicationController
         Cart.destroy(session[:cart_id])
         session[:cart_id] = nil
         OrderNotifier.received(@order).deliver
-        format.html { redirect_to store_url, notice:
+        format.html { redirect_to order_path(@order.id), notice:
           I18n.t('.thanks') }
         format.json { render action: 'show', status: :created,
           location: @order }
